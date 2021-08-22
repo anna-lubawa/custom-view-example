@@ -3,11 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@id/firstFragment">
 
     <fragment
-        android:id="@+id/mainFragment"
-        android:name="com.annalubawa.custom_view_example.MainFragment"
-        android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        android:id="@+id/firstFragment"
+        android:name="com.annalubawa.custom_view_example.FirstFragment"
+        android:label="fragment_first"
+        tools:layout="@layout/fragment_first" />
+    <fragment
+        android:id="@+id/secondFragment"
+        android:name="com.annalubawa.custom_view_example.SecondFragment"
+        android:label="SecondFragment" />
+    <action
+        android:id="@+id/action_global_firstFragment"
+        app:destination="@id/firstFragment" />
+    <action
+        android:id="@+id/action_global_secondFragment"
+        app:destination="@id/secondFragment" />
 </navigation>

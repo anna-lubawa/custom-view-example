@@ -8,6 +8,7 @@
     android:animateLayoutChanges="true"
     android:background="@drawable/input_background"
     android:focusableInTouchMode="true"
+    android:padding="0dp"
     android:orientation="vertical">
 
     <EditText
@@ -21,7 +22,8 @@
         android:backgroundTint="@color/grey"
         android:ems="10"
         android:hint="@string/email"
-        android:inputType="textEmailAddress" />
+        android:inputType="textEmailAddress"
+        android:minHeight="48dp" />
 
     <EditText
         android:id="@+id/firstnameEditText"
@@ -34,7 +36,8 @@
         android:backgroundTint="@color/grey"
         android:ems="10"
         android:hint="@string/firstname"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:minHeight="48dp" />
 
     <EditText
         android:id="@+id/lastnameEditText"
@@ -47,7 +50,8 @@
         android:backgroundTint="@color/grey"
         android:ems="10"
         android:hint="@string/lastname"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:minHeight="48dp" />
 
     <EditText
         android:id="@+id/passwordEditText"
@@ -60,7 +64,8 @@
         android:backgroundTint="@color/grey"
         android:ems="10"
         android:hint="@string/password"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:minHeight="48dp" />
 
     <EditText
         android:id="@+id/repeatPasswordEditText"
@@ -73,7 +78,8 @@
         android:backgroundTint="@color/grey"
         android:ems="10"
         android:hint="@string/repeat_password"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:minHeight="48dp" />
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -81,13 +87,15 @@
         android:progressDrawable="@drawable/progressbar_background"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
         android:layout_marginTop="32dp"
         android:layout_marginBottom="24dp" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="48dp"
         android:layout_marginStart="48dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="48dp"
