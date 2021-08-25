@@ -4,9 +4,11 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
@@ -25,15 +27,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.focus.FocusState
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.platform.LocalFocusManager
-import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 
-data class UserData(
-    val email: String = "",
-    val firstName: String = "",
-    val lastName: String = "",
-    val password: String = "",
-    val repeatPassword: String = ""
-)
 
 @Composable
 fun SignUpForm(
@@ -43,16 +37,21 @@ fun SignUpForm(
     val focusRequesters = List(5) { FocusRequester() }
     val focusManager = LocalFocusManager.current
 
+    val scrollState = rememberScrollState(0)
+
     var state by rememberSaveable {
         mutableStateOf(SignUpFormState())
     }
 
-    var data by remember {
+    var data by rememberSaveable {
         mutableStateOf(UserData())
     }
 
     Column(
-        modifier = modifier,
+        modifier = modifier.verticalScroll(
+            state = scrollState,
+            enabled = true
+        ),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         SingleTextField(
@@ -230,8 +229,8 @@ private fun SingleTextField(
             .focusOrder(focusRequester) {
                 nextFocusRequester.requestFocus()
             }
-            .onFocusChanged{
-               onFocusChange(it)
+            .onFocusChanged {
+                onFocusChange(it)
             },
         shape = CircleShape,
         colors = TextFieldDefaults.textFieldColors(
